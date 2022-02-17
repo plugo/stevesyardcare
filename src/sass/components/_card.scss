@@ -1,0 +1,233 @@
+@use "../abstracts" as *;
+
+.card {
+    /* Need to place perspective on the parent for a 3D look
+     The higher the number the less pronounced the perspective
+     The lower the number the more pronounced the perspective */
+    perspective: 150rem; // 1500px
+    /* for mozilla firefox (autoprefix npm package) */
+    position: relative;
+    /* since we moved the side out of the flow and collapsed the height,
+    we have to declare a height on this selector. */
+    height: 62rem;
+
+    &_side {
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($black, .15);
+        height: 62rem;
+        /* adding ease here helps smooth the animation */
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        /* this is needed for the front and back animation */
+        backface-visibility: hidden;
+
+        &--front {
+            background-color: $white;
+        }
+
+        &--back {
+            transform: rotateY(180deg);
+
+            &1 {
+                background-image: linear-gradient(to right bottom,
+                    $color-tertiary-light,
+                    $color-tertiary-dark);
+            }
+
+            &2 {
+                background-image: linear-gradient(to right bottom,
+                    $color-primary-light,
+                    $color-primary-dark);
+            }
+
+            &3 {
+                background-image: linear-gradient(to right bottom,
+                    $color-secondary-light,
+                    $color-secondary-dark);
+            }
+        }
+    }
+
+    &:hover &_side--front {
+        /* this simply rotates with no perspective */
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &_side--back {
+        /* this simply rotates with no perspective */
+        transform: rotateY(0);
+    }
+
+    // FRONT SIDE STYLING
+    &_picture {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        &--1 {
+            background-image: linear-gradient(to right bottom,
+                $color-tertiary-light,
+                $color-tertiary-dark),
+                url('../img/lawncare-5.jpg');
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom,
+                $color-primary-light,
+                $color-primary-dark),
+                url('../img/lawncare-6.jpg');
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom,
+                $color-secondary-light,
+                $color-secondary-dark),
+                url('../img/lawncare-7.jpg');
+        }
+
+    }
+
+    &_heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: $white;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        text-align: right;
+        width: 75%;
+    }
+
+    &_headingSpan {
+        padding: 1rem 1.5rem;
+        box-decoration-break: clone;
+
+        &--1 {
+            background-image: linear-gradient(to right bottom,
+                rgba($color-tertiary-light, .85),
+                rgba($color-tertiary-dark, .85));
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom,
+                rgba($color-primary-light, .85),
+                rgba($color-primary-dark, .85));
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom,
+                rgba($color-secondary-light, .85),
+                rgba($color-secondary-dark, .85));
+        }
+
+    }
+
+    &_detail {
+        padding: 3rem;
+
+        ul {
+            list-style-type: none;
+            width: 100%;
+            /* center block element inside of block element */
+            margin: 0 auto;
+            padding-left: 0;
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-gray-light-2;
+                }
+            }
+        }
+
+        h5 {
+        	font-size: 1.5rem;
+        	margin-top: 0;
+        	margin-bottom: 2px;
+        }
+    }
+
+    // BACK SIDE STYLING
+    &_cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+
+    &_priceBox {
+        text-align: center;
+        margin-bottom: 8rem;
+        color: $white;
+    }
+
+    &_priceOnly {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &_priceValue {
+        font-size: 3rem;
+        font-weight: 100;
+    }
+
+    /* @include respond(tab-port) { Comment this out and use a media query with device options to target a touch device since the hover effect will not work on mobile - simply use hover: none */
+    @media only screen and (max-width: 56.25em),
+    only screen and (hover: none) {
+        /* change the matching height for front/back side to fit all the content on one side. */
+        height: auto;
+        border-radius: 3px;
+        background-color: $white;
+        box-shadow: 0 1.5rem 4rem rgba($black, .15);
+
+        &_side {
+            box-shadow: none;
+            height: auto;
+            position: relative;
+
+            &--back {
+                transform: rotateY(0);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+
+            }
+        }
+
+        &_detail {
+            padding: 1rem 3rem;
+        }
+
+        // no more rotation or back side
+        &:hover &_side--front {
+            transform: rotateY(0);
+        }
+
+        // BACK SIDE STYLING
+        &_cta {
+            padding: 7rem 4rem 4rem;
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0);
+            width: 100%;
+        }
+
+        &_priceBox {
+            margin-bottom: 3rem;
+        }
+
+        &_priceValue {
+            font-size: 4rem;
+        }
+    }
+}

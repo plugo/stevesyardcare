@@ -1,0 +1,48 @@
+@use "../abstracts" as *;
+
+.u-marginBottom--xs {
+    margin-bottom: .5rem !important;
+}
+
+.u-marginBottom--sm {
+    margin-bottom: 1.5rem !important;
+}
+
+.u-marginBottom--md {
+    margin-bottom: 4rem !important;
+
+    @include respond(tab-port) {
+        margin-bottom: 3rem !important;
+    }
+}
+
+.u-marginBottom--lg {
+    margin-bottom: 8rem !important;
+
+    @include respond(tab-port) {
+        margin-bottom: 5rem !important;
+    }
+}
+
+.u-marginBottom--xl {
+    margin-bottom: 10rem !important;
+}
+
+.u-textCenter {
+    text-align: center !important;
+}
+
+.u-textLeft {
+    text-align: left !important;
+}
+
+.u-textRight {
+    text-align: right !important;
+}
+
+.icon-social--fb {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}

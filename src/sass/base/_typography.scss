@@ -1,0 +1,98 @@
+@use "../abstracts" as *;
+
+body {
+    font-family: Montserrat, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: $gray-dark;
+}
+
+.headingPrimary {
+    color: $white;
+    background-image: url("../img/syc-logo-sm.svg");
+    text-transform: uppercase;
+    background-repeat: no-repeat;
+    height: 14rem;
+    padding-left: 11rem;
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+
+    &--main {
+        display: block;
+        background-position: left;
+        font-size: 9rem;
+        font-weight: 700;
+        letter-spacing: 0.25rem;
+        animation: moveInLeft 1s ease-out;
+        text-shadow: 4px 3px 6px rgba(0,0,0,0.54), 2px 2px 2px rgba(0,0,0,0.54);
+
+        @include respond(phone) {
+            letter-spacing: .1rem;
+            font-size: 8rem;
+        }
+    }
+
+    &--sub {
+        display: block;
+        font-size: 5.4rem;
+        font-weight: 400;
+        letter-spacing: 0.7rem;
+        animation: moveInRight 1s ease-out;
+        margin-top: -2.6rem;
+        text-shadow: 4px 3px 4px rgba(0,0,0,0.8), 2px 2px 2px rgba(0,0,0,0.8);;
+
+        @include respond(phone) {
+            font-size: 4.9rem;
+            letter-spacing: 0.5rem;
+            margin-top: -1rem;
+        }
+    }
+
+}
+
+.heading-secondary {
+    font-size: 3.5rem; // 35px
+    text-transform: uppercase;
+    font-weight: 700;
+    // set gradient color to text
+    background-image: linear-gradient(to right,
+        $color-primary-light,
+        $color-primary-dark);
+    // bring the gradient down to match the width of the text
+    display: inline-block;
+    // clip the gradient to the text
+    -webkit-background-clip: text;
+    background-clip: text;
+    // make the text transparent to let the gradient come through
+    color: transparent;
+    transition: all .2s;
+    letter-spacing: 2px;
+
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        text-shadow: .5rem 1rem 1.5rem rgba($black, .4);
+    }
+}
+
+.heading-tertiary {
+    font-size: $default-font-size;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.paragraph {
+    font-size: $default-font-size;
+
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+}
+

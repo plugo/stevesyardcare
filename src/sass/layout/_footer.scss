@@ -1,0 +1,126 @@
+@use "../abstracts" as *;
+
+.footer {
+    background-color: $gray-darker-3;
+    color: $color-gray-light-1;
+    padding: 8rem 0;
+    font-size: 1.6rem;
+
+    &_grid {
+    	display: flex;
+    	flex-direction: column;
+    	align-items: center;
+    }
+
+    @include respond(tab-land) {
+        padding: 8rem 2rem;
+    }
+
+    &_logoBox {
+        text-align: center;
+        margin-bottom: 3rem;
+
+        @include respond(tab-port) {
+            margin-bottom: 4rem;
+        }
+    }
+
+    &_logo {
+    	display: inline-block;
+    }
+
+    .icon {
+    	display: inline-block;
+    	width: 1em;
+    	height: 1em;
+    	stroke-width: 0;
+    	stroke: currentColor;
+    	fill: currentColor;
+    }
+
+    .icon-facebook {
+      color: $gray-dark;
+      font-size: 8em;
+
+      &:hover {
+      	color: $color-primary;
+      }
+    }
+
+    &_navigation {
+        padding-top: .5rem;
+        display: inline-block;
+
+        @include respond(tab-port) {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    &_copyright {
+        color: $gray-dark;
+        margin-top: 0;
+
+        @include respond(tab-port) {
+            width: 100%;
+            float: none;
+            text-align: center;
+        }
+
+        @include respond(phone) {
+            width: 100%;
+            float: none;
+        }
+    }
+
+    &_text {
+    	color: $color-gray-light-1;
+    	background-color: $gray-darker-3;
+    	opacity: 0.4;
+    	text-decoration: none;
+    	text-transform: uppercase;
+    }
+
+    &_list {
+       	display: flex;
+       	flex-direction: column;
+       	align-items: center;
+        list-style: none;
+        margin-top: 0;
+
+        @include respond(tab-port) {
+            padding-left: 0;
+        }
+    }
+
+    &_item {
+        margin-bottom: 1rem;
+
+        &:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+    }
+
+    &_link {
+        &:link,
+        &:visited {
+            color: $color-gray-light-1;
+            background-color: $gray-darker-3;
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.2;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all .2s;
+        }
+
+        &:hover,
+        &:active {
+            color: $color-primary;
+            box-shadow: 0 1rem 2rem rgba($black, .4);
+            transform: translateY(-0.6em) scale(1.1);
+        }
+
+    }
+}

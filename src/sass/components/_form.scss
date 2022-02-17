@@ -1,0 +1,30 @@
+@use "../abstracts" as *;
+
+.certified {
+
+    &_group {
+
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    &_text {
+    	max-width: 80%;
+    	font-size: 1.8rem;
+    	line-height: 2;
+    }
+
+}
+
+#shareFolderContainer {
+    display: block;
+
+    .ui-tree {
+        border-radius: 0;
+
+        &-container {
+            height: 205px;
+        }
+    }
+}

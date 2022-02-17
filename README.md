@@ -1,2 +1,2 @@
 # stevesyardcare
-In business since 1980 providing lawn care for the Omaha area.
+In the lawn care business since 1980 serving the Omaha Nebraska area.

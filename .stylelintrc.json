@@ -1,0 +1,85 @@
+{
+    "plugins": [
+        "stylelint-scss"
+    ],
+    "ignoreFiles": [
+        "src/sass/abstracts/*.scss",
+        "src/sass/**/_index.scss"
+    ],
+    "rules":
+    {
+        "at-rule-allowed-list": [
+            "function",
+            "return",
+            "each",
+            "keyframes",
+            "include",
+            "media",
+            "use",
+            "forward",
+            "if",
+            "else",
+            "mixin",
+            "import"
+        ],
+        "at-rule-disallowed-list": ["debug"],
+        "at-rule-name-space-after": "always",
+        "at-rule-no-vendor-prefix": true,
+        "block-no-empty": true,
+        "block-opening-brace-space-before": "always",
+        "color-hex-case": [
+            "lower",
+            {
+                "message": "Lowercase letters are easier to distinguish from numbers"
+            }
+        ],
+        "color-hex-length": "short",
+        "color-no-invalid-hex": true,
+        "comment-no-empty": true,
+        "declaration-block-no-redundant-longhand-properties": [
+            true,
+            {
+                "ignoreShorthands": ["/flex/"]
+            }
+        ],
+        "declaration-block-trailing-semicolon": "always",
+        "declaration-colon-space-after": "always",
+        "declaration-colon-space-before": "never",
+        "declaration-property-value-disallowed-list": [
+        {
+            "/^border/": ["none"]
+        }],
+        "declaration-property-unit-allowed-list":
+        {
+            "/^animation/": ["s"],
+            "line-height": []
+        },
+        "font-family-name-quotes": "always-where-recommended",
+        "font-family-no-missing-generic-family-keyword": true,
+        "function-calc-no-unspaced-operator": true,
+        "function-comma-space-after": "always",
+        "function-linear-gradient-no-nonstandard-direction": true,
+        "function-name-case": "lower",
+        "function-url-quotes": "always",
+        "keyframe-declaration-no-important": true,
+        "indentation": "tab",
+        "length-zero-no-unit": true,
+        "max-empty-lines": 4,
+        "max-nesting-depth": 4,
+        "no-duplicate-selectors": true,
+        "no-empty-source": true,
+        "no-extra-semicolons": true,
+        "number-leading-zero": "always",
+        "number-max-precision": 3,
+        "number-no-trailing-zeros": true,
+        "property-case": "lower",
+        "selector-max-id": 1,
+        "selector-no-vendor-prefix": true,
+        "shorthand-property-no-redundant-values": true,
+        "unit-allowed-list": ["em", "rem", "px", "%", "s", "deg", "vh", "vw", "ms"],
+        "unit-case": "lower",
+        "value-list-comma-space-after": "always-single-line",
+        "value-list-comma-space-before": "never",
+        "value-no-vendor-prefix": true
+    }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "StevesYardCare",
+  "version": "3.2.0",
+  "description": "Steve's Yard Care serving the Omaha Nebraska area since 1980.",
+  "main": "index.html",
+  "keywords": [
+    "spot weeding"
+  ],
+  "author": "Paul Lugo",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm-run-all clean lint:sass compile:sass prefix:css min:css",
+    "watch:sass": "sass src/sass/main.scss build/css/main.css --watch",
+    "devserver": "browser-sync start --server \"build\" --files \"build\"",
+    "start": "run-p devserver watch:sass",
+    "clean": "rimraf build/css/*",
+    "lint:sass": "stylelint src/sass/*.scss --fix --custom-syntax postcss-scss",
+    "compile:sass": "sass --no-source-map src/sass/main.scss build/css/main.css",
+    "prefix:css": "postcss --use autoprefixer -b 'defaults' build/css/main.css -o build/css/main.prefix.css",
+    "min:css": "postcss --no-map --use cssnano --dir build/css build/css/*.css"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "browser-sync": "^2.27.7",
+    "cssnano": "^5.0.17",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "postcss-scss": "^4.0.3",
+    "rimraf": "^3.0.2",
+    "sass": "^1.45.1",
+    "stylelint": "^14.2.0",
+    "stylelint-scss": "^4.1.0"
+  }
+}
